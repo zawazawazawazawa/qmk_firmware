@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  QUOT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,    ESC,   RAISE, ALTKN \
+                                  GUIEI,   SPC, LOWER,    ALTKN,   ESC, RAISE \
                               //`--------------------'  `--------------------'
   ),
 
@@ -84,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  BSPC,\
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                    GRV,  BSLS, XXXXX,  LBRC,  RBRC,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       EXLM,    AT,  HASH,   DLR,  PERC,  CIRC,                   AMPR,  ASTR,  LPRN,  RPRN,  MINS,   EQL,\
+       EXLM,     1,     2,     3,     4,     5,                   EXLM,    AT,  HASH,   DLR,  PERC,  CIRC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,   GRV,  TILD, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX,  LBRC,  RBRC,  PIPE,  BSLS,\
+       LSFT,     6,     7,     8,     9,     0,                   AMPR,  ASTR,  LPRN,  RPRN,  MINS,   EQL,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
                               //`--------------------'  `--------------------'
