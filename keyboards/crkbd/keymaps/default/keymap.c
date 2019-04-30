@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       CTLTB,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,     6,     7,     8,     9,     0,                    F16,   F17,   F18,   F19,   F20, XXXXX,\
+       LSFT,     6,     7,     8,     9,     0,                   LEFT,  DOWN,    UP, RIGHT,   F20, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LOWER, GUIEI,   SPC,      ENT,   ESC, RAISE \
                               //`--------------------'  `--------------------'
@@ -84,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  BSPC,\
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX,  LBRC,  RBRC,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       EXLM,    AT,  HASH,   DLR,  PERC,  CIRC,                   AMPR,  ASTR,  LPRN,  RPRN,  MINS,   EQL,\
+      XXXXX,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,  BSLS,   GRV,  LBRC,  RBRC, XXXXX,                   BSLS,   GRV,  LBRC,  RBRC, XXXXX, XXXXX,\
+       LSFT, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   MINS,   EQL,  BSLS,   GRV, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LOWER, GUIEI,   SPC,      ENT,   ESC, RAISE \
                               //`--------------------'  `--------------------'
