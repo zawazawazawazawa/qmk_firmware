@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "process_unicode.h"
+#include "process_unicodemap.h"
+#include "process_unicode_common.h"
 
 extern keymap_config_t keymap_config;
 
@@ -13,6 +15,8 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
+
+  THINKING_FACE_TYPE,
 };
 
 enum unicode_name {
@@ -41,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_QWERTY] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS,                         KC_EQL, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS, \
-      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,                        KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-      KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______,                        _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,                        _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______, \
-      KC_GRV, KC_LGUI, KC_LALT, EISU,           KC_LGUI,    KC_SPC ,_______,        X(THINKING_FACE), KC_ENT,KC_ESC,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS,                         KC_EQL,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS, \
+      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,                        KC_RBRC,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+      KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    UNICODE_MODE_OSX,      UNICODE_MODE_LNX,   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,                        _______,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______, \
+      KC_GRV, KC_LGUI, KC_LALT, EISU,           KC_LGUI,    KC_SPC ,_______,     THINKING_FACE_TYPE, KC_ENT,  KC_ESC,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
       ),
 
   /* Lower
@@ -157,6 +161,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(_ADJUST);
       }
       return false;
+      break;
+    case THINKING_FACE_TYPE:
+      if (record->event.pressed) {
+        switch(get_unicode_input_mode()) {
+          case UC_OSX:
+            register_code(KC_RALT);
+            SEND_STRING("D83E+DD14");
+            unregister_code(KC_RALT);
+            break;
+        }
+      }
       break;
   }
   return true;
