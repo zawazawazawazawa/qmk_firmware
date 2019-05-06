@@ -1,6 +1,5 @@
 /*
-Copyright 2012 Jun Wako <wakojun@gmail.com>
-Copyright 2015 Jack Humbert
+Copyright 2015 Jun Wako <wakojun@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,57 +15,49 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef REV2_CONFIG_H
-#define REV2_CONFIG_H
-
-#include "config_common.h"
+#pragma once
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6060
-#define DEVICE_VER      0x0100
-#define MANUFACTURER    Omkbd
-#define PRODUCT         ErgoDash
-#define DESCRIPTION     Power
+#define VENDOR_ID       0xCA04
+#define PRODUCT_ID      0x6565
+#define DEVICE_VER      0x0001
+/* in python2: list(u"whatever".encode('utf-16-le')) */
+/*   at most 32 characters or the ugly hack in usb_main.c borks */
+#define MANUFACTURER CannonKeys
+#define PRODUCT Practice 65
+#define DESCRIPTION Practice 65
 
 /* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 7
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 16
 
-// wiring of each half
-#define MATRIX_ROW_PINS { D4, D7, E6, B4, B5 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3, B2 }
-// #define MATRIX_COL_PINS { B2, B3, B1, F7, F6, F5, F4 } //uncomment this line and comment line above if you need to reverse left-to-right key order
+#define MATRIX_COL_PINS { B8, B0, A0, B5, B10, B9, A6, B12, A7, A5, A4, A3, A2, A1, B13, B14 }
+#define MATRIX_ROW_PINS { B4, B11, B1, B7, B6 }
+#define DIODE_DIRECTION COL2ROW
 
-/* define tapping term */
-#define TAPPING_TERM 120
+#define BACKLIGHT_LEVELS 6
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 6
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-#define C6_AUDIO
-
-/* number of backlight levels */
-#ifdef BACKLIGHT_ENABLE
-  #define BACKLIGHT_PIN B6
-  #define BACKLIGHT_LEVELS 7
-//  #define BACKLIGHT_BREATHING
-//  #define BREATHING_PERIOD 4
-#endif
-
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCING_DELAY 5
+#define DEBOUNCE    5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
+#define RGBLIGHT_ANIMATIONS
 
-#define RGBLED_NUM 24    // Number of LEDs
+#define WS2812_LED_N 20
+#define RGBLED_NUM WS2812_LED_N
+#define PORT_WS2812     GPIOB
+#define PIN_WS2812      15
+#define WS2812_SPI SPID2
+
 
 /*
  * Feature disable options
@@ -74,10 +65,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /* disable debug print */
-// #define NO_DEBUG
+//#define NO_DEBUG
 
 /* disable print */
-// #define NO_PRINT
+//#define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER
@@ -85,5 +76,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
-
-#endif

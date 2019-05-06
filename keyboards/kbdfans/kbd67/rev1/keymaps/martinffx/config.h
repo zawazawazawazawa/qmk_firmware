@@ -1,4 +1,4 @@
-/* Copyright 2019 Jack Humbert
+/* Copyright 2018 MechMerlin
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,9 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #pragma once
 
-#include "quantum.h"
-
-void perform_space_cadet(keyrecord_t *record, uint8_t holdMod, uint8_t tapMod, uint8_t keycode);
-bool process_space_cadet(uint16_t keycode, keyrecord_t *record);
+// place overrides here
