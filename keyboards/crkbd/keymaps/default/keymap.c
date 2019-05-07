@@ -72,11 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                      7,     7,     8,     9,   F10,  BSPC,\
+        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       CTLTB,  CIRC,  AMPR,  ASTR,  LPRN,  RPRN,                   LEFT,  DOWN,    UP, RIGHT, XXXXX,XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,  MINS,   EQL,  BSLS,   GRV, XXXXX,                      1,     1,     2,     3,   F20, XXXXX,\
+       LSFT,  MINS,   EQL,  BSLS,   GRV, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LOWER, GUIEI,   SPC,      ENT,   ESC, RAISE \
                               //`--------------------'  `--------------------'
@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,     7,     8,     9,     0,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      XXXXX,  EXLM,    AT,  HASH,   DLR,  PERC,                  XXXXX,     4,     5,     6,  RPRN, XXXXX,\
+      XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,     4,     5,     6, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,MS_LEFT,MS_DOWN,MS_UP,MS_RIGHT, XXXXX,               XXXXX,     1,     2,     3, XXXXX, XXXXX,\
+       LSFT, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX,     1,     2,     3, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LOWER, GUIEI,   SPC,      ENT,   ESC, RAISE \
                               //`--------------------'  `--------------------'
