@@ -1,4 +1,7 @@
 #include QMK_KEYBOARD_H
+#include "process_unicode.h"
+#include "process_unicodemap.h"
+#include "process_unicode_common.h"
 
 extern keymap_config_t keymap_config;
 
@@ -12,6 +15,16 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
+
+  THINKING_FACE_TYPE,
+};
+
+enum unicode_name {
+  THINKING_FACE,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+  [THINKING_FACE] = 0x1F914, // THINKING_FACE
 };
 
 #define EISU LALT(KC_GRV)
@@ -32,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_QWERTY] = LAYOUT( \
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_LBRC,                        KC_RBRC, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PSCR, \
-    KC_GRV,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_MINS,                        KC_EQL , KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
-    KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_DEL ,                        KC_BSPC, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
-    KC_LCTL, KC_LGUI, KC_LALT, EISU,             LOWER,   KC_SPC ,KC_DEL,         KC_BSPC,KC_ENT , RAISE,            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS,                         KC_EQL,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS, \
+      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,                        KC_RBRC,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+      KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______,                        _______,   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,                        _______,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______, \
+      KC_GRV,KC_LGUI,KC_LALT, X(THINKING_FACE), KC_LGUI,    KC_SPC ,_______,       THINKING_FACE_TYPE, KC_ENT,  KC_ESC,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
   ),
 
   /* Lower
@@ -149,6 +162,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case THINKING_FACE_TYPE:
+      if (record->event.pressed) {
+        set_unicode_input_mode(UC_OSX);
+        register_code(KC_RALT);
+        SEND_STRING("D83E+DD14");
+        unregister_code(KC_RALT);
+        set_unicode_input_mode(UC_LNX);
+      }
+      break;
   }
   return true;
+}
+
+void matrix_init_user(void) {
+  set_unicode_input_mode(UC_LNX);
 }
