@@ -79,3 +79,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //3: about 39kbps
 //4: about 26kbps
 //5: about 20kbps
+//
+
+#define MK_3_SPEED
+#define MK_C_OFFSET_1 6
