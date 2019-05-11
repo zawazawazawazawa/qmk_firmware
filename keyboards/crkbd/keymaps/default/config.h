@@ -44,4 +44,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_VAL_STEP 17
 
 #define MK_3_SPEED
-#define MK_C_OFFSET_1 8
+#define MK_C_OFFSET_1 12
