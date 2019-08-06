@@ -23,10 +23,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( /* Base */
-    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, \
-    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, \
-    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, \
-    KC_TAB,  KC_SPC   \
+    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G,\
+    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G,\
+    KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G, KC_A,  KC_B,  KC_C, KC_D,  KC_E,  KC_F,  KC_G,\
+    KC_SPC,  KC_ENT, KC_ENT,  KC_SPC   \
   ),
 };
 
