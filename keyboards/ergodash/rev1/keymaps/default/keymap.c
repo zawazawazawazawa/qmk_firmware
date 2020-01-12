@@ -3,7 +3,6 @@
 #include "process_unicodemap.h"
 #include "process_unicode_common.h"
 
-extern keymap_config_t keymap_config;
 
 #define _QWERTY 0
 #define _LOWER 1
